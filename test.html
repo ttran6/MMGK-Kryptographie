@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style media="screen">
+
+			/* Seitenüberschrift */
+			#Übersicht{
+				position: absolute; top:0px; left:0px;
+				width: 100%;
+				height: 20%auto;;
+				background-color: #9090B0;
+				padding: 20px;
+				color: #EEFFEE;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				/*bin nicht so entschieden, ob ich das hier mag mit dem schatten*/
+			}
+
+			#Inhalt{
+				/*hier müssen wir noch etwas ändern, weil wenn Übersicht absolut
+				ist kann Inhalt nicht beim default: static bleiben, weil es dann
+				nicht angezeigt wird.*/
+			}
+
+			/* Dropdown Button */
+			.dropbtn {
+				background-color: #4CAF50;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+				size: 45%;
+				margin: 0;
+				width: 25%;
+			}
+
+			/* Dropdown button on hover & focus */
+			.dropbtn:hover, .dropbtn:focus {
+				background-color: #3e8e41;
+			}
+
+			/* Dropdown Content (Hidden by Default) */
+			.dropdown-content {
+				display: none;
+				position: absolute; /*hier müssen wir finden, wie man das an etwas
+									anhängen kann, oder ob wir das unabhängig voneinander
+									am gleichen Ort haben müssen.*/
+
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+			#MyDropdown2{
+				position: absolute;
+				left:40%;
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			/* Links inside the dropdown */
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			/* Change color of dropdown links on hover */
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+			.show {display:block;}
+		</style>
+		<script type="text/javascript">
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			// Close the dropdown menu if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.dropbtn')) {
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+  						var openDropdown = dropdowns[i];
+  						if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+  						}
+					}
+				}
+				/*Das hier war mein Versuch zu verhindern, dass die anderen Dropdown Fenster bleiben,
+				wenn man auf ein anderes clickt. Aber damit öffnen sich gar keine mehr.
+
+				else{
+					for (var i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (event.target.matches('dropdowns[i]')) {
+							openDropdown.classList.toggle("show");
+						}
+						else{
+							openDropdown.classList.remove('show');
+						}
+					}
+				}
+			} */
+
+			/* When the user clicks on the button,
+			toggle between hiding and showing the dropdown content */
+			function drop(x) {
+
+				if(x==1){
+					document.getElementById("myDropdown1").classList.toggle("show");
+				}
+				if(x==2){
+					document.getElementById("myDropdown2").classList.toggle("show");
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<div id="Übersicht">
+			<p style="position:relative">
+				Kryptographie
+			</p>
+			<button class="nondrop" href="https://www.youtube.com/watch?v=3zghyEjA-HE&t=0s" >Startseite</button>
+ 			<span onclick="drop(1)" class="dropbtn">Caesar</span>
+ 			<div id="myDropdown1" class="dropdown-content">
+   				<a href="#">Einführung</a>
+   				<a href="#">Monoalphabetische Verfahren</a>
+   				<a href="#">Selbst verschlüsseln</a>
+ 			</div>
+			<span onclick="drop(2)" class="dropbtn">Vignere</span>
+			<div id="myDropdown2" class="dropdown-content">
+				<a href="#">Link b1</a>
+				<a href="#">Link b2</a>					<a href="#">Link 3</a>
+			</div>
+		</div>
+		<div id="Inhalt">
+			<p> <!-- wird nicht angezeigt. siehe oben -->
+				g
+				g
+				g
+				g
+				dsadg
+				f
+				g
+				f
+				gds
+				fhsfd
+
+				df
+				g
+				fdgd
+
+			</p>
+		</div>
+	</body>
+</html>
